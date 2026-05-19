@@ -1,9 +1,9 @@
-import { ChevronLeft, ChevronRight, Truck, Clock, RefreshCw, Sparkles, Send } from "lucide-react";
+import { ChevronLeft, ChevronRight, Truck, Clock, RefreshCw, Sparkles } from "lucide-react";
 import { motion } from "motion/react";
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
-import Footer from "./components/Footer.tsx";
+import Footer from "./components/Footer";
 import ProductCard from "./components/ProductCard";
 import ExpertCard from "./components/ExpertCard";
 import BlogCard from "./components/BlogCard";
@@ -380,9 +380,11 @@ export default function App() {
 
   const openModal = (type: string) => {
     if (['track-order', 'returns'].includes(type)) {
-        setServiceModalType(type);
+      setInfoModalType(null);
+      setServiceModalType(type);
     } else {
-        setInfoModalType(type);
+      setServiceModalType(null);
+      setInfoModalType(type);
     }
   };
 

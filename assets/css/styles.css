@@ -1,0 +1,141 @@
+:root {
+  --floral: #f8f1f3;
+  --ink: #26211f;
+  --rose: #d65b78;
+  --leaf: #667a5a;
+}
+
+body {
+  color: var(--ink);
+  background: #fffdfc;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.bg-floral,
+.hero-section {
+  background: var(--floral);
+}
+
+.brand,
+.serif {
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+}
+
+.eyebrow {
+  color: var(--rose);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+}
+
+.hero-image {
+  width: 100%;
+  max-height: 560px;
+  object-fit: cover;
+  border: 10px solid rgba(255,255,255,.75);
+  border-radius: 32px;
+  box-shadow: 0 30px 80px rgba(38,33,31,.14);
+}
+
+.controls .form-control,
+.controls .form-select {
+  min-width: 180px;
+}
+
+.product-card,
+.panel,
+.auth-card,
+.metric-card {
+  background: #fff;
+  border: 1px solid rgba(38,33,31,.08);
+  border-radius: 18px;
+  box-shadow: 0 20px 50px rgba(38,33,31,.06);
+}
+
+.product-card {
+  overflow: hidden;
+  height: 100%;
+}
+
+.product-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.product-card .badge {
+  background: rgba(214,91,120,.12);
+  color: var(--rose);
+}
+
+.btn-dark {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.checkout-band,
+.newsletter {
+  background: #f7f8f4;
+}
+
+.newsletter-form {
+  max-width: 520px;
+}
+
+.footer,
+.admin-shell .navbar {
+  background: var(--ink);
+  color: #fff;
+}
+
+.cart-thumb,
+.admin-product-thumb {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.admin-login {
+  background: linear-gradient(135deg, #f8f1f3, #f7f8f4);
+}
+
+.auth-card {
+  width: min(100%, 460px);
+}
+
+.panel {
+  padding: 1.25rem;
+}
+
+.metric-card {
+  padding: 1.25rem;
+}
+
+.metric-card span {
+  display: block;
+  color: #777;
+  font-size: .8rem;
+}
+
+.metric-card strong {
+  display: block;
+  font-size: 1.6rem;
+  margin-top: .35rem;
+}
+
+.status-pill {
+  display: inline-block;
+  padding: .35rem .7rem;
+  border-radius: 999px;
+  background: rgba(102,122,90,.12);
+  color: var(--leaf);
+  font-weight: 700;
+  font-size: .78rem;
+}
+
+.product-form-panel {
+  top: 5rem;
+}

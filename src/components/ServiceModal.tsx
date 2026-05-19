@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { X, Package, Truck, RefreshCw, Send, CheckCircle2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -9,17 +9,42 @@ interface ServiceModalProps {
 }
 
 export default function ServiceModal({ isOpen, onClose, type }: ServiceModalProps) {
-  const [step, setStep] = useState(1);
   const [trackingId, setTrackingId] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    setTrackingId('');
+    setSubmitted(false);
+  }, [isOpen, type]);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimerRef.current) {
+        clearTimeout(closeTimerRef.current);
+      }
+    };
+  }, []);
+
+  const handleClose = () => {
+    if (closeTimerRef.current) {
+      clearTimeout(closeTimerRef.current);
+      closeTimerRef.current = null;
+    }
+    setSubmitted(false);
+    setTrackingId('');
+    onClose();
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
-    setTimeout(() => {
-        onClose();
-        setSubmitted(false);
-        setStep(1);
+    closeTimerRef.current = setTimeout(() => {
+        handleClose();
     }, 3000);
   };
 
@@ -122,7 +147,7 @@ export default function ServiceModal({ isOpen, onClose, type }: ServiceModalProp
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={onClose}
+            onClick={handleClose}
             className="absolute inset-0 bg-dark-matte/60 backdrop-blur-sm"
           />
           <motion.div
@@ -137,7 +162,7 @@ export default function ServiceModal({ isOpen, onClose, type }: ServiceModalProp
                   {type === 'track-order' ? <Package size={32} /> : <RefreshCw size={32} />}
                 </div>
                 <button
-                  onClick={onClose}
+                  onClick={handleClose}
                   className="h-10 w-10 flex items-center justify-center rounded-full bg-stone-100 hover:bg-stone-200 transition-colors text-stone-500"
                 >
                   <X size={20} />
