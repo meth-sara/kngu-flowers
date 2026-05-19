@@ -1,0 +1,6 @@
+{
+  "name": "Kngu. Flower Boutique",
+  "description": "A premium handcrafted floral e-commerce experience. Individually designed with responsive navigation, interactive cart logic, custom animations, and a professional admin portal. Built with a focus on polished UI/UX and modular architecture.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
