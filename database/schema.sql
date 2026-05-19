@@ -66,10 +66,19 @@ CREATE TABLE IF NOT EXISTS newsletter_subscribers (
 
 INSERT INTO products (title, description, price_lkr, image, category, stock, is_featured, is_best_seller)
 VALUES
-('Blush Rose Bouquet', 'Soft pink roses arranged with seasonal greens for romantic gifting.', 14500, 'src/assets/images/regenerated_image_1779162781667.jpg', 'Roses', 20, 1, 1),
-('Luxury Lily Basket', 'Premium lilies in an elegant hand-woven basket.', 18500, 'src/assets/images/regenerated_image_1779162810748.jpg', 'Lilies', 15, 1, 0),
-('Designer Choice Vase', 'A florist-curated arrangement made fresh each morning.', 22500, 'src/assets/images/regenerated_image_1779162774035.png', 'Designer', 12, 1, 1),
-('Orchid Grace', 'Minimal orchid arrangement for refined spaces and special occasions.', 26500, 'src/assets/images/regenerated_image_1779162833379.jpg', 'Orchids', 10, 0, 1),
-('Sunshine Garden Mix', 'Bright seasonal blooms crafted for birthdays and celebrations.', 12800, 'src/assets/images/regenerated_image_1779162845121.jpg', 'Mixed', 24, 0, 0),
-('Wedding White Classic', 'White roses and delicate fillers for bridal and formal gifting.', 32000, 'src/assets/images/regenerated_image_1779162857259.jpg', 'Wedding', 8, 1, 0)
-ON DUPLICATE KEY UPDATE title = VALUES(title);
+('Spring Snowflake', 'A soft seasonal arrangement with light blooms and delicate greens.', 5700, 'src/assets/images/regenerated_image_1779162810748.jpg', 'Spring', 0, 1, 1),
+('Rock Soapwort', 'Minimal pink bloom arranged for elegant gifting.', 15000, 'src/assets/images/regenerated_image_1779162833379.jpg', 'Roses', 18, 1, 0),
+('Scarlet Sage', 'Bright floral vase with rich color and boutique wrapping.', 11700, 'src/assets/images/regenerated_image_1779162845121.jpg', 'Vase', 20, 1, 1),
+('Foxglove Flower', 'Purple tulips styled in a cheerful yellow pot.', 23700, 'src/assets/images/regenerated_image_1779162857259.jpg', 'Tulips', 15, 0, 1),
+('Lity Majesty Palm', 'A single dramatic stem for modern floral styling.', 5700, 'src/assets/images/regenerated_image_1779162781667.jpg', 'Single Stem', 14, 1, 0),
+('Wild Roses', 'A romantic rose cluster with lush texture.', 5700, 'src/assets/images/regenerated_image_1779162876478.jpg', 'Roses', 22, 1, 1),
+('Summer Savory', 'Purple summer stem for clean, minimal interiors.', 12000, 'src/assets/images/regenerated_image_1779162891138.jpg', 'Summer', 12, 0, 1),
+('Majesty Palm', 'Fresh purple tulips with green leaves and graceful shape.', 19700, 'src/assets/images/regenerated_image_1779162774035.png', 'Tulips', 10, 0, 0)
+ON DUPLICATE KEY UPDATE
+  description = VALUES(description),
+  price_lkr = VALUES(price_lkr),
+  image = VALUES(image),
+  category = VALUES(category),
+  stock = VALUES(stock),
+  is_featured = VALUES(is_featured),
+  is_best_seller = VALUES(is_best_seller);

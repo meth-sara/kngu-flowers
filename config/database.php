@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 // XAMPP/WAMP defaults. Update these values if your MySQL user/password differs.
-$dbHost = getenv('DB_HOST') ?: 'localhost';
+$dbHost = getenv('DB_HOST') ?: '127.0.0.1';
 $dbName = getenv('DB_NAME') ?: 'flower_shop_db';
 $dbUser = getenv('DB_USER') ?: 'root';
 $dbPass = getenv('DB_PASS') ?: '';

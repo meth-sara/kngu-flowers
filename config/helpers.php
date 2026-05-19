@@ -59,13 +59,19 @@ function ensure_default_admin(PDO $pdo): void
         return;
     }
 
+    $password = password_hash('admin123', PASSWORD_DEFAULT);
+    $stmt = $pdo->prepare('SELECT id FROM users WHERE email = ? LIMIT 1');
+    $stmt->execute(['admin@kngu.test']);
+    $existing = $stmt->fetch();
+
+    if ($existing) {
+        $stmt = $pdo->prepare('UPDATE users SET full_name = ?, password = ?, role = ? WHERE id = ?');
+        $stmt->execute(['KNGU Admin', $password, 'admin', $existing['id']]);
+        return;
+    }
+
     $stmt = $pdo->prepare('INSERT INTO users (full_name, email, password, role) VALUES (?, ?, ?, ?)');
-    $stmt->execute([
-        'KNGU Admin',
-        'admin@kngu.test',
-        password_hash('admin123', PASSWORD_DEFAULT),
-        'admin',
-    ]);
+    $stmt->execute(['KNGU Admin', 'admin@kngu.test', $password, 'admin']);
 }
 
 function post_string(string $key, int $max = 255): string
