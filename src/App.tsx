@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer.tsx";
 import ProductCard from "./components/ProductCard";
 import ExpertCard from "./components/ExpertCard";
 import BlogCard from "./components/BlogCard";
